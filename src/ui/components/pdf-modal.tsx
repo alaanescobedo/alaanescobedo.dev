@@ -46,7 +46,7 @@ function PdfModalViewer({
             borderRadius="full"
           />
           <ModalBody m="0 auto" p={0} w="full" h="full">
-            <AspectRatio ratio={16 / 9} h="100%" w="1200px">
+            <AspectRatio ratio={16 / 9} h="100%" w="100%">
               <iframe
                 src="/static/AlanEscobedo_CV.pdf#view=fitH"
                 height="100%"
