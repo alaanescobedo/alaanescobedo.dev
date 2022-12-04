@@ -6,7 +6,7 @@ import {
   SiJavascript,
   SiCss3,
   SiMysql,
-} from "react-icons/SI";
+} from "react-icons/si";
 
 export const TechObj = {
   nextjs: {
