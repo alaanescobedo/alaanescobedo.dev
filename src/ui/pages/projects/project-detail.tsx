@@ -54,11 +54,15 @@ const ProjectDetails = ({
   const router = useRouter();
   const displayArrow = useBreakpointValue({ lg: "flex", base: "none" });
 
-  const prevProject = () => router.push(`/projects/${nextProjectSlug}`);
-  const nextProject = () => router.push(`/projects/${prevProjectSlug}`);
+  const prevProject = () => {
+    router.push(`/projects/${nextProjectSlug}`, undefined, { shallow: true });
+  };
+  const nextProject = () => {
+    router.push(`/projects/${prevProjectSlug}`);
+  };
 
-  useHotkeys("ctrl + ArrowLeft", () => prevProject());
-  useHotkeys("ctrl + ArrowRight", () => nextProject());
+  useHotkeys("ctrl + ArrowLeft", () => prevProject(), [prevProjectSlug]);
+  useHotkeys("ctrl + ArrowRight", () => nextProject(), [nextProjectSlug]);
 
   return (
     <VStack spacing={6}>
