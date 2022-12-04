@@ -7,7 +7,7 @@ const nextConfig = {
       {
         source: "/projects",
         destination: "/projects/store-finder",
-        permanent: true,
+        permanent: false,
       },
     ];
   },

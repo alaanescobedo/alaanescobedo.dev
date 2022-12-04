@@ -13,14 +13,12 @@
     "@chakra-ui/react": "2.4.2",
     "@emotion/react": "11.10.5",
     "@emotion/styled": "11.10.5",
-    "@pronestor/react-zoom-pan-pinch": "^2.4.3",
     "framer-motion": "6.5.1",
     "next": "13.0.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hotkeys-hook": "^4.0.4",
-    "react-icons": "4.7.1",
-    "react-pdf": "^6.2.0"
+    "react-icons": "4.7.1"
   },
   "devDependencies": {
     "@chakra-ui/icons": "2.0.13",

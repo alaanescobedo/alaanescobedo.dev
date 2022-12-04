@@ -9,10 +9,8 @@ import {
   Icon,
   Badge,
   Kbd,
-  Spacer,
   useBreakpointValue,
   Link,
-  Flex,
 } from "@chakra-ui/react";
 import Carrousel from "../../components/carrousel";
 import { useRouter } from "next/router";
@@ -24,7 +22,6 @@ import { useHotkeys } from "react-hotkeys-hook";
 import PROJECTS from "../../../data/projects.json";
 
 type IProject = typeof PROJECTS[0];
-
 interface ProjectDetailProps {
   project: IProject;
   nextProjectSlug: string;
@@ -57,11 +54,11 @@ const ProjectDetails = ({
   const router = useRouter();
   const displayArrow = useBreakpointValue({ lg: "flex", base: "none" });
 
-  const prevSlide = () => router.push(`/projects/${nextProjectSlug}`);
-  const nextSlide = () => router.push(`/projects/${prevProjectSlug}`);
+  const prevProject = () => router.push(`/projects/${nextProjectSlug}`);
+  const nextProject = () => router.push(`/projects/${prevProjectSlug}`);
 
-  useHotkeys("ctrl + ArrowLeft", () => prevSlide());
-  useHotkeys("ctrl + ArrowRight", () => nextSlide());
+  useHotkeys("ctrl + ArrowLeft", () => prevProject());
+  useHotkeys("ctrl + ArrowRight", () => nextProject());
 
   return (
     <VStack spacing={6}>
@@ -169,7 +166,7 @@ const ProjectDetails = ({
       </Box>
       <Text
         left="6%"
-        onClick={prevSlide}
+        onClick={prevProject}
         colorScheme="red"
         pos="fixed"
         userSelect="none"
@@ -180,7 +177,7 @@ const ProjectDetails = ({
       </Text>
       <Text
         right="6%"
-        onClick={nextSlide}
+        onClick={nextProject}
         colorScheme="red"
         pos="fixed"
         userSelect="none"

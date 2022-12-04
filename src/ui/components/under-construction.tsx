@@ -12,8 +12,7 @@ const UnderConstruction = () => {
       borderColor="gray.600"
     >
       <Text color="purple.400" fontSize="2xl" fontWeight="bold">
-        {" "}
-        🏗 Sitio en construcción 🔨{" "}
+        🏗 Sitio en construcción 🔨
       </Text>
     </Container>
   );

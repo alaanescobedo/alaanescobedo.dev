@@ -2,23 +2,9 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
-  ModalCloseButton,
   ModalBody,
-  ModalFooter,
-  Button,
-  Box,
-  Image,
-  Icon,
-  VStack,
-  Text,
   AspectRatio,
 } from "@chakra-ui/react";
-import { Kbd } from "@chakra-ui/react";
-import { ArrowDownIcon, ArrowUpIcon, ArrowUpDownIcon } from "@chakra-ui/icons";
-import { useState } from "react";
-
-import dynamic from "next/dynamic";
 
 function PdfModalViewer({
   isOpen,
@@ -39,12 +25,6 @@ function PdfModalViewer({
           h="full"
           w="full"
         >
-          <ModalCloseButton
-            zIndex={100}
-            display="block"
-            bgColor="blue.400"
-            borderRadius="full"
-          />
           <ModalBody m="0 auto" p={0} w="full" h="full">
             <AspectRatio ratio={16 / 9} h="100%" w="100%">
               <iframe

@@ -4,10 +4,6 @@ import NextLink from "next/link";
 
 const LINKS = [
   {
-    path: "/",
-    title: "About",
-  },
-  {
     path: "/projects",
     title: "Projects",
   },
@@ -81,7 +77,7 @@ export default function Navbar() {
             <GridItem w="100%" h="10" colSpan={[2, 1]} order={[1, 1]}>
               <HStack alignItems="center" h="full">
                 <Link as={NextLink} href="/" fontSize="md">
-                  ʕ•ᴥ•ʔっHome
+                  Home
                 </Link>
               </HStack>
             </GridItem>

@@ -1,24 +1,6 @@
 import { Flex, Text, Box, Image, AspectRatio } from "@chakra-ui/react";
 import { useState } from "react";
 
-// const slides = [
-//   {
-//     img: "https://res.cloudinary.com/dr3egho5s/image/upload/v1670003472/generations-maps_umfjm3.jpg",
-//   },
-//   {
-//     img: "https://images.pexels.com/photos/2714581/pexels-photo-2714581.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-//   },
-//   {
-//     img: "https://images.pexels.com/photos/2878019/pexels-photo-2878019.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-//   },
-//   {
-//     img: "https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-//   },
-//   {
-//     img: "https://images.pexels.com/photos/3124111/pexels-photo-3124111.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-//   },
-// ];
-
 const arrowStyles = {
   cursor: "pointer",
   top: "50%",
@@ -40,17 +22,14 @@ const Carrousel = ({ slides, alt }: { slides: string[]; alt: string }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slidesCount = slides.length;
 
-  const prevSlide = () => {
+  const prevSlide = () =>
     setCurrentSlide((current) =>
       current === 0 ? slidesCount - 1 : current - 1
     );
-  };
-
-  const nextSlide = () => {
+  const nextSlide = () =>
     setCurrentSlide((current) =>
       current === slidesCount - 1 ? 0 : current + 1
     );
-  };
 
   const carouselStyle = {
     transition: "all .5s",

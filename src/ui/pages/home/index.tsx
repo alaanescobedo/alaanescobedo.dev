@@ -31,8 +31,6 @@ import { TechObj } from "../../../constants/technologies";
 import PROJECTS from "../../../data/projects.json";
 import PdfModalViewer from "../../components/pdf-modal";
 
-import { useState } from "react";
-
 const STACK = [TechObj.typescript, TechObj.java];
 
 const HomePage = () => {
@@ -241,7 +239,7 @@ function ProjectCard({ project }: ProjectCardProps) {
             w="full"
             href={`/projects/${slug}`}
             colorScheme="purple"
-            bgColor="purple.400"
+            bgColor="purple.500"
             color="white"
           >
             View Details
@@ -252,7 +250,7 @@ function ProjectCard({ project }: ProjectCardProps) {
             href={`//${demo}`}
             target="_blank"
             colorScheme="blue"
-            bgColor="blue.400"
+            bgColor="blue.500"
             color="white"
           >
             Demo
