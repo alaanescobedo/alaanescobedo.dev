@@ -12,3 +12,4 @@ TODO:
 - [ ] Agregar sección de contribuciones a proyectos open source
 - [ ] Implementar PWA
 - [ ] Migrar a ramas de desarrollo con commits semánticos
+- [ ] Uso de Meta Tags para mejora de SEO y previsualizar el contenido al compartir por redes
