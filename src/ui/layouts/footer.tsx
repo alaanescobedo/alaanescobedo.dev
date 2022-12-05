@@ -57,39 +57,50 @@ export default function Footer() {
         justify={{ base: "center", md: "space-between" }}
         align={{ base: "center", md: "center" }}
       >
-        <Text>
-          Made with ❤️ by Alan Escobedo |
+        <Box>
+          <Text>
+            Made with ❤️ by Alan Escobedo |
+            <Link
+              as={NextLink}
+              isExternal
+              href="https://nextjs.org"
+              color="whiteAlpha.800"
+              ml={1}
+            >
+              Next.js
+            </Link>{" "}
+            +
+            <Link
+              as={NextLink}
+              isExternal
+              href="https://typescriptlang.org"
+              color="blue.300"
+              ml={1}
+            >
+              TypeScript
+            </Link>{" "}
+            +
+            <Link
+              as={NextLink}
+              isExternal
+              href="https://chakra-ui.com"
+              color="green.300"
+              ml={1}
+            >
+              Chakra UI
+            </Link>{" "}
+            | Arigato!
+          </Text>
+        </Box>
+        <Box>
           <Link
-            as={NextLink}
-            isExternal
-            href="https://nextjs.org"
-            color="whiteAlpha.800"
-            ml={1}
+            as="a"
+            href="https://github.com/alaanescobedo/alaanescobedo.dev"
+            target="_blank"
           >
-            Next.js
-          </Link>{" "}
-          +
-          <Link
-            as={NextLink}
-            isExternal
-            href="https://typescriptlang.org"
-            color="blue.300"
-            ml={1}
-          >
-            TypeScript
-          </Link>{" "}
-          +
-          <Link
-            as={NextLink}
-            isExternal
-            href="https://chakra-ui.com"
-            color="green.300"
-            ml={1}
-          >
-            Chakra UI
-          </Link>{" "}
-          | Arigato!
-        </Text>
+            Repositorio
+          </Link>
+        </Box>
       </Container>
     </Box>
   );
