@@ -31,14 +31,26 @@ import { TechObj } from "../../../constants/technologies";
 import PROJECTS from "../../../data/projects.json";
 import PdfModalViewer from "../../components/pdf-modal";
 
+import Head from "next/head";
+
 const STACK = [TechObj.typescript, TechObj.java];
 
 const HomePage = () => {
   return (
-    <VStack spacing={2}>
-      <CallToActionWithAnnotation />
-      <Projects />
-    </VStack>
+    <>
+      <Head>
+        <title>alaanescobedo.dev</title>
+        <meta
+          name="description"
+          content="Personal website of Alan Escobedo, Frontend Developer, based in Mexico"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <VStack spacing={2}>
+        <CallToActionWithAnnotation />
+        <Projects />
+      </VStack>
+    </>
   );
 };
 
