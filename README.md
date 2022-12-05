@@ -11,3 +11,4 @@ TODO:
 - [ ] Test unitarios
 - [ ] Agregar sección de contribuciones a proyectos open source
 - [ ] Implementar PWA
+- [ ] Migrar a ramas de desarrollo con commits semánticos
