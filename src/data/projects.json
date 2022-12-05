@@ -18,7 +18,8 @@
       "- Utiliza la API de Google Maps para mostrar el mapa y los marcadores.",
       "- Permite filtrar las tiendas por dirección y por nombre.",
       "- Cambio de vista a Street View para ver la ubicación en 360°.",
-      "- Proyecto realizado sin dependencias adicionales al core de React."
+      "- Proyecto realizado sin dependencias adicionales al core de React.",
+      "- Se implemento un wrapper propio para la API de Google Maps basado en la libreria '@googlemaps/react-wrapper'"
     ],
     "technologies": ["react", "css", "typescript"],
     "slug": "store-finder",
