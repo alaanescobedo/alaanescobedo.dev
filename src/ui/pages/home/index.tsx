@@ -171,7 +171,7 @@ function Projects() {
             lineHeight={"110%"}
           >
             <Text as={"span"} color={"blue.400"}>
-              Projects
+              Proyectos
             </Text>
           </Heading>
           <Grid templateColumns="repeat(2, 1fr)" gap={6} mx="auto" w="full">
