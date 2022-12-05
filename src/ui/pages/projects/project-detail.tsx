@@ -123,7 +123,7 @@ const ProjectDetails = ({
                 Links
               </Heading>
               <Text>
-                Cliente:{" "}
+                Frontend:{" "}
                 <Link
                   as="a"
                   fontSize="md"
@@ -136,7 +136,7 @@ const ProjectDetails = ({
               </Text>
               {project.source_server && (
                 <Text>
-                  Codigo fuente:{" "}
+                  Backend:{" "}
                   <Link
                     as="a"
                     fontSize="md"
