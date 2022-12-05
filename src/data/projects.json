@@ -37,10 +37,10 @@
       ],
       "alt": "enchulame-la-playera preview"
     },
-    "description": "Enchulame la playera es un eccomerce que permite a los usuarios crear diseños personalizados para playeras.",
+    "description": "Enchulame la playera es un e-comerce que permite a los usuarios crear diseños personalizados para playeras.",
     "reason": "Esta aplicacion fue desarrollada con el fin de practicar mis habilidades con JavaScript y Java, asi como tambien con el uso de tecnologias como Trello, Jira, GitHub. Fue desarrollada en un equipo de 6 personas, tomando un rol de lider de equipo junto con el rol de desarrollador.",
     "features": [
-      "- Proyecto eccomerce donde muestra productos de una tienda de playeras."
+      "- Proyecto e-comerce donde muestra productos de una tienda de playeras."
     ],
     "technologies": ["javascript", "bootstrap", "java"],
     "slug": "enchulame-la-playera",
