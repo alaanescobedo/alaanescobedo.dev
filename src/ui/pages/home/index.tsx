@@ -255,6 +255,7 @@ function ProjectCard({ project }: ProjectCardProps) {
             alignItems={"center"}
             justifyContent={"center"}
             maxHeight="158px"
+            flex={1}
           >
             <Text fontSize="md" color="gray.300" flex={1}>
               No hay preview disponible
