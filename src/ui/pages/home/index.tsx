@@ -32,6 +32,7 @@ import PROJECTS from "../../../data/projects.json";
 import PdfModalViewer from "../../components/pdf-modal";
 
 import Head from "next/head";
+import NextImage from "next/image";
 
 const STACK = [TechObj.typescript, TechObj.java];
 
@@ -86,8 +87,19 @@ function CallToActionWithAnnotation() {
             fontSize={{ base: "3xl", sm: "4xl", md: "5xl" }}
             lineHeight={"110%"}
             color={"blue.400"}
+            position="relative"
           >
-            <Text as="span">Hola! Feliz {dayOfWeek}!👋</Text>
+            <Text as="span" position="relative">
+              <Box position="absolute" top="0" left="-10px" w={[5, 8]}>
+                <NextImage
+                  src="/static/santa_hat.svg"
+                  width={100}
+                  height={100}
+                  alt="123"
+                />
+              </Box>
+              Hola! Feliz {dayOfWeek}!👋
+            </Text>
             <Spacer />
             <Text as="span">Soy Alan Escobedo</Text>
           </Heading>
@@ -254,7 +266,7 @@ function ProjectCard({ project }: ProjectCardProps) {
             bgColor="purple.500"
             color="white"
           >
-            View Details
+            Ver Detalles
           </Button>
           <Button
             as="a"
