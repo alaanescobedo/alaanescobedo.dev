@@ -20,6 +20,7 @@ import { TechObj } from "../../../constants/technologies";
 import { useHotkeys } from "react-hotkeys-hook";
 
 import PROJECTS from "../../../data/projects.json";
+import NextImage from "next/image";
 
 type IProject = typeof PROJECTS[0];
 interface ProjectDetailProps {
@@ -62,7 +63,17 @@ const ProjectDetails = ({
 
   return (
     <VStack spacing={6}>
-      <Heading color="blue.400">{project.title}</Heading>
+      <Heading color="blue.400" position="relative">
+        <Box position="absolute" top="-1px" left="-6px" w={[5, 6]}>
+          <NextImage
+            src="/static/santa_hat.svg"
+            width={100}
+            height={100}
+            alt="123"
+          />
+        </Box>
+        {project.title}
+      </Heading>
       <Box as="main" bg="gray.800" color="white">
         <Container maxW="xl" w="100%">
           <Stack p={10} gap={4} w="100%">

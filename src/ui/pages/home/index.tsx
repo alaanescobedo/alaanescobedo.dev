@@ -90,7 +90,7 @@ function CallToActionWithAnnotation() {
             position="relative"
           >
             <Text as="span" position="relative">
-              <Box position="absolute" top="0" left="-10px" w={[5, 8]}>
+              <Box position="absolute" top="-2px" left="-10px" w={[5, 8]}>
                 <NextImage
                   src="/static/santa_hat.svg"
                   width={100}
