@@ -5,12 +5,12 @@ import {
   Text,
   Stack,
   Heading,
-  HStack,
   Icon,
   Badge,
   Kbd,
   useBreakpointValue,
   Link,
+  Flex,
 } from "@chakra-ui/react";
 import Carrousel from "../../components/carrousel";
 import { useRouter } from "next/router";
@@ -73,16 +73,35 @@ const ProjectDetails = ({
           />
         </Box>
         {project.title}
+        {project.inProgress && (
+          <Badge ml={2} colorScheme="yellow">
+            En desarrollo
+          </Badge>
+        )}
       </Heading>
       <Box as="main" bg="gray.800" color="white">
         <Container maxW="xl" w="100%">
           <Stack p={10} gap={4} w="100%">
-            <Box>
-              <Carrousel
-                slides={project.preview.urls}
-                alt={project.preview.alt}
-              />
-            </Box>
+            {project.preview && (
+              <Box>
+                <Carrousel
+                  slides={project.preview?.urls}
+                  alt={project.preview.alt}
+                />
+              </Box>
+            )}
+            {!project.preview && (
+              <Box
+                border="2px"
+                borderColor="blue.800"
+                my={2}
+                textAlign="center"
+              >
+                <Text fontSize="md" color="gray.300">
+                  No hay preview disponible
+                </Text>
+              </Box>
+            )}
             <Box>
               <Heading fontSize="xl" my={2} color="gray.500">
                 Que es {project.title}?
@@ -107,7 +126,7 @@ const ProjectDetails = ({
               <Heading fontSize="xl" mb={2} color="gray.500">
                 Tecnologias utilizadas
               </Heading>
-              <HStack mt={4}>
+              <Flex mt={4} gap={1} flexWrap={"wrap"}>
                 {project.technologies.map((tech, i) => {
                   const { icon, color, name } =
                     TechObj[tech as keyof typeof TechObj];
@@ -126,51 +145,45 @@ const ProjectDetails = ({
                     </Badge>
                   );
                 })}
-              </HStack>
+              </Flex>
             </Box>
 
-            <Box>
+            <Box gap="2">
               <Heading fontSize="xl" my={2} color="gray.500">
                 Links
               </Heading>
-              <Text>
-                Frontend:{" "}
-                <Link
-                  as="a"
-                  fontSize="md"
-                  href={`//${project.source_client}`}
-                  target="_blank"
-                  color="blue.500"
-                >
-                  {project.source_client}
-                </Link>
-              </Text>
-              {project.source_server && (
-                <Text>
-                  Backend:{" "}
+              {project.links.map((link, i) => (
+                <Box key={i}>
+                  {link.label}:{" "}
                   <Link
-                    as="a"
+                    as={link?.disabled ? Text : "a"}
+                    display="inline-flex"
+                    my={1}
+                    variant={link?.disabled ? "disabled" : ""}
                     fontSize="md"
-                    href={`//${project.source_server}`}
+                    href={`//${link.url}`}
                     target="_blank"
-                    color="blue.500"
+                    color={link?.disabled ? "gray.500" : "blue.500"}
                   >
-                    {project.source_server}
+                    {link.url}
                   </Link>
-                </Text>
-              )}
-              <Text>
+                </Box>
+              ))}
+              <Box>
                 Demo:{" "}
                 <Link
-                  as="a"
+                  as={project.demo === null ? Text : "a"}
+                  display="inline-flex"
+                  my={1}
+                  variant={project.demo === null ? "disabled" : ""}
                   fontSize="md"
                   href={`//${project.demo}`}
                   target="_blank"
-                  color="blue.500"
+                  color={project.demo === null ? "gray.500" : "blue.500"}
                 >
-                  {project.demo}
+                  {project.demo === null ? "En desarrollo" : project.demo}
                 </Link>
-              </Text>
+              </Box>
             </Box>
           </Stack>
         </Container>

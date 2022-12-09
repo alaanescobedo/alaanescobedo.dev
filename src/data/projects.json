@@ -1,6 +1,38 @@
 [
   {
     "id": 1,
+    "title": "Enchulame la playera",
+    "preview": {
+      "urls": [
+        "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114465/elp_preview/preview_2_nsm7zp.jpg",
+        "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114465/elp_preview/preview_5_ob63vi.jpg",
+        "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114465/elp_preview/preview_3_myubv8.jpg",
+        "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114465/elp_preview/preview_4_oraxni.jpg"
+      ],
+      "alt": "enchulame-la-playera preview"
+    },
+    "description": "Enchulame la playera es un e-comerce que permite a los usuarios crear diseños personalizados para playeras.",
+    "reason": "Esta aplicacion fue desarrollada con el fin de practicar mis habilidades con JavaScript y Java, asi como tambien con el uso de tecnologias como Trello, Jira, GitHub. Fue desarrollada en un equipo de 6 personas, tomando un rol de lider de equipo junto con el rol de desarrollador.",
+    "features": [
+      "- Proyecto e-comerce donde muestra productos de una tienda de playeras."
+    ],
+    "technologies": ["javascript", "bootstrap", "springboot"],
+    "slug": "enchulame-la-playera",
+    "links": [
+      {
+        "label": "Frontend",
+        "url": "github.com/alaanescobedo/enchulame-la-playera-client",
+        "disabled": false
+      },
+      {
+        "label": "Backend",
+        "url": "github.com/alaanescobedo/enchulame-la-playera-api"
+      }
+    ],
+    "demo": "enchulame-la-playera.netlify.app/"
+  },
+  {
+    "id": 2,
     "title": "Store Finder",
     "preview": {
       "urls": [
@@ -23,30 +55,55 @@
     ],
     "technologies": ["react", "css", "typescript"],
     "slug": "store-finder",
-    "source_client": "github.com/alaanescobedo/store-finder-maps",
+    "links": [
+      {
+        "label": "Frontend",
+        "url": "github.com/alaanescobedo/store-finder-maps"
+      }
+    ],
     "demo": "store-finder-maps.netlify.app/"
   },
   {
-    "id": 2,
-    "title": "Enchulame la playera",
-    "preview": {
-      "urls": [
-        "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114465/elp_preview/preview_2_nsm7zp.jpg",
-        "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114465/elp_preview/preview_5_ob63vi.jpg",
-        "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114465/elp_preview/preview_3_myubv8.jpg",
-        "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114465/elp_preview/preview_4_oraxni.jpg"
-      ],
-      "alt": "enchulame-la-playera preview"
-    },
-    "description": "Enchulame la playera es un e-comerce que permite a los usuarios crear diseños personalizados para playeras.",
-    "reason": "Esta aplicacion fue desarrollada con el fin de practicar mis habilidades con JavaScript y Java, asi como tambien con el uso de tecnologias como Trello, Jira, GitHub. Fue desarrollada en un equipo de 6 personas, tomando un rol de lider de equipo junto con el rol de desarrollador.",
+    "id": 3,
+    "title": "My files",
+    "preview": null,
+    "description": "Web App donde los usuarios pueden almacenar archivos basado en una suscripcion.",
+    "reason": "Esta aplicacion fue desarrollada con el fin de practicar mis habilidades en el backend tanto con NestJs como con Springboo, y conocer tanto sus similitudes como sus diferencias.",
     "features": [
-      "- Proyecto e-comerce donde muestra productos de una tienda de playeras."
+      "- Metodo de suscripcion a un plan de pago utilizando Stripe.",
+      "- Busqueda de datos utilizando ElasticSearch.",
+      "- Metodo de autenticacion con JWT.",
+      "- Metodo de verificacion de 2 pasos con Google Authenticator.",
+      "- Notificacion de email",
+      "- Inicio de sesion con Google.",
+      "- Carga de imagenes con AWS S3."
     ],
-    "technologies": ["javascript", "bootstrap", "java"],
-    "slug": "enchulame-la-playera",
-    "source_client": "github.com/alaanescobedo/enchulame-la-playera-client",
-    "source_server": "github.com/alaanescobedo/enchulame-la-playera-api",
-    "demo": "enchulame-la-playera.netlify.app/"
+    "technologies": [
+      "nextjs",
+      "chakraui",
+      "springboot",
+      "nestjs",
+      "stripe",
+      "aws"
+    ],
+    "slug": "my-files-app",
+    "links": [
+      {
+        "label": "Frontend",
+        "url": "En desarrollo",
+        "disabled": true
+      },
+      {
+        "label": "Backend NestJs",
+        "url": "github.com/alaanescobedo/project-full"
+      },
+      {
+        "label": "Backend Springboot",
+        "url": "En desarrollo",
+        "disabled": true
+      }
+    ],
+    "demo": null,
+    "inProgress": true
   }
 ]

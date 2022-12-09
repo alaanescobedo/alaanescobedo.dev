@@ -199,11 +199,13 @@ function Projects() {
             </Text>
           </Heading>
           <Grid templateColumns="repeat(2, 1fr)" gap={6} mx="auto" w="full">
-            {PROJECTS.map((project) => (
-              <GridItem colSpan={[2, 1]} key={project.id}>
-                <ProjectCard project={project} />
-              </GridItem>
-            ))}
+            {PROJECTS.slice(0)
+              .reverse()
+              .map((project) => (
+                <GridItem colSpan={[2, 1]} key={project.id}>
+                  <ProjectCard project={project} />
+                </GridItem>
+              ))}
           </Grid>
         </Stack>
       </Container>
@@ -217,19 +219,46 @@ interface ProjectCardProps {
   project: IProject;
 }
 function ProjectCard({ project }: ProjectCardProps) {
-  const { title, description, demo, preview, slug, features, technologies } =
+  const { title, description, preview, slug, technologies, demo, inProgress } =
     project;
   return (
     <Card align="center" h="full">
       <CardHeader>
         <Heading size="md" color="purple.300">
           {title}
+          {inProgress! && (
+            <Badge ml={2} colorScheme="yellow">
+              En desarrollo
+            </Badge>
+          )}
         </Heading>
       </CardHeader>
-      <CardBody textAlign="left" py={1} flex={1}>
+      <CardBody
+        textAlign="left"
+        py={1}
+        flex={1}
+        display="flex"
+        flexDirection="column"
+      >
         {preview && (
           <Box border="2px" borderColor="blue.800" my={2}>
             <Image src={preview.urls[0]} alt={preview.alt} />
+          </Box>
+        )}
+        {!preview && (
+          <Box
+            border="2px"
+            borderColor="blue.800"
+            my={2}
+            textAlign="center"
+            display="flex"
+            alignItems={"center"}
+            justifyContent={"center"}
+            maxHeight="158px"
+          >
+            <Text fontSize="md" color="gray.300" flex={1}>
+              No hay preview disponible
+            </Text>
           </Box>
         )}
         <Box>
@@ -269,9 +298,10 @@ function ProjectCard({ project }: ProjectCardProps) {
             Ver Detalles
           </Button>
           <Button
-            as="a"
+            as={demo === null ? Button : "a"}
             w="full"
             href={`//${demo}`}
+            disabled={demo === null}
             target="_blank"
             colorScheme="blue"
             bgColor="blue.500"
