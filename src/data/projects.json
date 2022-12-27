@@ -65,9 +65,17 @@
   },
   {
     "id": 3,
-    "title": "My files",
-    "preview": null,
-    "description": "Web App donde los usuarios pueden almacenar archivos basado en una suscripcion.",
+    "title": "My Files",
+    "preview": {
+      "urls": [
+        "https://res.cloudinary.com/dr3egho5s/image/upload/v1672104676/my-files-preview/preview_1_cn0bpx.jpg",
+        "https://res.cloudinary.com/dr3egho5s/image/upload/v1672104676/my-files-preview/preview_2_cdvcnq.jpg",
+        "https://res.cloudinary.com/dr3egho5s/image/upload/v1672104676/my-files-preview/preview_3_sakvnv.jpg",
+        "https://res.cloudinary.com/dr3egho5s/image/upload/v1672104676/my-files-preview/preview_4_rcvmkf.jpg"
+      ],
+      "alt": "my-files-app preview"
+    },
+    "description": "My Files es una app en donde los usuarios pueden almacenar archivos basado en una suscripcion.",
     "reason": "Esta aplicacion fue desarrollada con el fin de practicar mis habilidades en el backend tanto con NestJs como con Springboot, y conocer tanto sus similitudes como sus diferencias.",
     "features": [
       "- Metodo de suscripcion a un plan de pago utilizando Stripe.",
@@ -84,26 +92,25 @@
       "springboot",
       "nestjs",
       "stripe",
-      "aws"
+      "aws",
+      "docker"
     ],
     "slug": "my-files-app",
     "links": [
       {
         "label": "Frontend",
-        "url": "En desarrollo",
-        "disabled": true
+        "url": "github.com/alaanescobedo/my-files-web"
       },
       {
         "label": "Backend NestJs",
         "url": "github.com/alaanescobedo/project-full"
       },
       {
-        "label": "Backend Springboot",
-        "url": "En desarrollo",
-        "disabled": true
+        "label": "Backend Springboot (Producción)",
+        "url": "github.com/alaanescobedo/my-files-api-springboot"
       }
     ],
-    "demo": null,
+    "demo": "app.my-files-app.xyz/",
     "inProgress": true
   }
 ]
