@@ -20,8 +20,12 @@ import {
   Badge,
   Image,
   useDisclosure,
+  List,
+  ListIcon,
+  ListItem,
 } from "@chakra-ui/react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaExternalLinkAlt } from "react-icons/fa";
+import { MdOutlinePending } from "react-icons/md";
 import { HiDocumentArrowDown } from "react-icons/hi2";
 import NextLink from "next/link";
 import { REDIRECTS } from "../../../constants";
@@ -50,6 +54,7 @@ const HomePage = () => {
       <VStack spacing={2}>
         <CallToActionWithAnnotation />
         <Projects />
+        <GoalsForNextYear />
       </VStack>
     </>
   );
@@ -313,5 +318,51 @@ function ProjectCard({ project }: ProjectCardProps) {
         </Flex>
       </CardFooter>
     </Card>
+  );
+}
+
+function GoalsForNextYear() {
+  return (
+    <Box as={"section"} py={"6"}>
+      <Container maxW={"lg"}>
+        <Stack>
+          <Heading textAlign={"center"}>
+            <Text as={"span"} color={"blue.400"}>
+              🌟Metas para el 2023🌟
+            </Text>
+          </Heading>
+          <Heading as={"h3"} size={"sm"} color={"gray.500"}>
+            Es increíble lo que se puede lograr en un año con constancia y
+            dedicación. Así que este año me he propuesto:
+          </Heading>
+          <List spacing={3} py={"4"}>
+            <ListItem display="flex" alignItems={"center"}>
+              <ListIcon as={MdOutlinePending} color="blue.500" />
+              Aprender sobre desarrollo de microservicios
+            </ListItem>
+            <ListItem display="flex" alignItems={"center"}>
+              <ListIcon as={MdOutlinePending} color="blue.500" />
+              Obtener el certificado de AWS Developer Associate
+            </ListItem>
+            <ListItem display="flex" alignItems={"center"}>
+              <ListIcon as={MdOutlinePending} color="blue.500" />
+              Mejorar mi inglés y certificarme en un nivel C1 o superior
+            </ListItem>
+            <ListItem display="flex" alignItems={"center"}>
+              <ListIcon as={MdOutlinePending} color="blue.500" />
+              Empezar a escribir en mi blog
+            </ListItem>
+            <ListItem display="flex" alignItems={"center"}>
+              <ListIcon as={MdOutlinePending} color="blue.500" />
+              Mejorar mi conocimiento en docker y redes
+            </ListItem>
+            <ListItem display="flex" alignItems={"center"}>
+              <ListIcon as={MdOutlinePending} color="blue.500" />
+              Aprender sobre GraphQL
+            </ListItem>
+          </List>
+        </Stack>
+      </Container>
+    </Box>
   );
 }
