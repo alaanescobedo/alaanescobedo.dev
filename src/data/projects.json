@@ -78,13 +78,15 @@
     "description": "My Files es una app en donde los usuarios pueden almacenar archivos basado en una suscripcion.",
     "reason": "Esta aplicacion fue desarrollada con el fin de practicar mis habilidades en el backend tanto con NestJs como con Springboot, y conocer tanto sus similitudes como sus diferencias.",
     "features": [
-      "- Metodo de suscripcion a un plan de pago utilizando Stripe.",
-      "- Busqueda de datos utilizando ElasticSearch.",
+      "- Almacenamiento de archivos en AWS S3.",
+      "- Carga de avatar de usuario en Cloudinary.",
       "- Metodo de autenticacion con JWT.",
-      "- Metodo de verificacion de 2 pasos con Google Authenticator.",
-      "- Notificacion de email.",
+      "- Despliegue de aplicacion dockerizada",
       "- Inicio de sesion con Google.",
-      "- Carga de imagenes con AWS S3."
+      "- Notificacion de email.",
+      "- Metodo de verificacion de 2 pasos con Google Authenticator.",
+      "- Metodo de suscripcion a un plan de pago utilizando Stripe.",
+      "- Busqueda de datos utilizando ElasticSearch."
     ],
     "technologies": [
       "nextjs",
