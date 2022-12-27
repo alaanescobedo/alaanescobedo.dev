@@ -98,6 +98,6 @@ export const TechObj = {
   stripe: {
     name: "Stripe",
     icon: FaStripe,
-    color: "purple.600",
+    color: "purple.300",
   },
 } as const;
