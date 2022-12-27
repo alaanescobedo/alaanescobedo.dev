@@ -26,7 +26,8 @@
       },
       {
         "label": "Backend",
-        "url": "github.com/alaanescobedo/enchulame-la-playera-api"
+        "url": "github.com/alaanescobedo/enchulame-la-playera-api",
+        "disabled": false
       }
     ],
     "demo": "enchulame-la-playera.netlify.app/"
@@ -58,7 +59,8 @@
     "links": [
       {
         "label": "Frontend",
-        "url": "github.com/alaanescobedo/store-finder-maps"
+        "url": "github.com/alaanescobedo/store-finder-maps",
+        "disabled": false
       }
     ],
     "demo": "store-finder-maps.netlify.app/"
@@ -101,15 +103,18 @@
     "links": [
       {
         "label": "Frontend",
-        "url": "github.com/alaanescobedo/my-files-web"
+        "url": "github.com/alaanescobedo/my-files-web",
+        "disabled": false
       },
       {
         "label": "Backend NestJs",
-        "url": "github.com/alaanescobedo/project-full"
+        "url": "github.com/alaanescobedo/project-full",
+        "disabled": false
       },
       {
         "label": "Backend Springboot (Producción)",
-        "url": "github.com/alaanescobedo/my-files-api-springboot"
+        "url": "github.com/alaanescobedo/my-files-api-springboot",
+        "disabled": false
       }
     ],
     "demo": "app.my-files-app.xyz/",
