@@ -338,11 +338,7 @@ function GoalsForNextYear() {
           <List spacing={3} py={"4"}>
             <ListItem display="flex" alignItems={"center"}>
               <ListIcon as={MdOutlinePending} color="blue.500" />
-              Aprender sobre desarrollo de microservicios
-            </ListItem>
-            <ListItem display="flex" alignItems={"center"}>
-              <ListIcon as={MdOutlinePending} color="blue.500" />
-              Obtener el certificado de AWS Developer Associate
+              Realizar y aprobar el examen de OCA y OCP de Java
             </ListItem>
             <ListItem display="flex" alignItems={"center"}>
               <ListIcon as={MdOutlinePending} color="blue.500" />
@@ -350,15 +346,20 @@ function GoalsForNextYear() {
             </ListItem>
             <ListItem display="flex" alignItems={"center"}>
               <ListIcon as={MdOutlinePending} color="blue.500" />
+              Estudiar y obtener el certificado de AWS Cloud Practitioner y AWS
+              Developer Associate
+            </ListItem>
+            <ListItem display="flex" alignItems={"center"}>
+              <ListIcon as={MdOutlinePending} color="blue.500" />
+              Aprender sobre desarrollo de microservicios
+            </ListItem>
+            <ListItem display="flex" alignItems={"center"}>
+              <ListIcon as={MdOutlinePending} color="blue.500" />
               Empezar a escribir en mi blog
             </ListItem>
             <ListItem display="flex" alignItems={"center"}>
               <ListIcon as={MdOutlinePending} color="blue.500" />
-              Mejorar mi conocimiento en docker y redes
-            </ListItem>
-            <ListItem display="flex" alignItems={"center"}>
-              <ListIcon as={MdOutlinePending} color="blue.500" />
-              Aprender sobre GraphQL
+              Aprender y entender el entorno de docker y redes
             </ListItem>
           </List>
         </Stack>
