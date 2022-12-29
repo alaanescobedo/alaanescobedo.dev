@@ -23,12 +23,20 @@ import {
   List,
   ListIcon,
   ListItem,
+  Link,
 } from "@chakra-ui/react";
-import { FaGithub, FaLinkedin, FaExternalLinkAlt } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaExternalLinkAlt,
+  FaGithubAlt,
+} from "react-icons/fa";
 import { MdOutlinePending } from "react-icons/md";
 import { HiDocumentArrowDown } from "react-icons/hi2";
 import NextLink from "next/link";
 import { REDIRECTS } from "../../../constants";
+
+import GitPrStatusBadge from "../../components/git-pr-status-badge";
 
 import { getDayOfWeek } from "../../../utils/get-day-of-week";
 import { TechObj } from "../../../constants/technologies";
@@ -54,6 +62,7 @@ const HomePage = () => {
       <VStack spacing={2}>
         <CallToActionWithAnnotation />
         <Projects />
+        <ContributionsOpenSource />
         <GoalsForNextYear />
       </VStack>
     </>
@@ -324,7 +333,7 @@ function ProjectCard({ project }: ProjectCardProps) {
 function GoalsForNextYear() {
   return (
     <Box as={"section"} py={"6"}>
-      <Container maxW={"lg"}>
+      <Container maxW={"2xl"}>
         <Stack>
           <Heading textAlign={"center"}>
             <Text as={"span"} color={"blue.400"}>
@@ -363,6 +372,98 @@ function GoalsForNextYear() {
             </ListItem>
           </List>
         </Stack>
+      </Container>
+    </Box>
+  );
+}
+
+const CONTRIBUTIONS = [
+  {
+    id: 1,
+    repo_name: "The Algorithms",
+    repo_url: "https://the-algorithms.com",
+    pr_url: "https://github.com/TheAlgorithms/Algorithms-Explanation/pull/160",
+    status: "merged",
+    description:
+      "Correccion de redireccionamiento en los enlaces del sitio web.",
+  },
+  {
+    id: 2,
+    repo_name: "Formik",
+    repo_url: "https://formik.org",
+    pr_url: "https://github.com/jaredpalmer/formik/pull/3547",
+    status: "open",
+    description:
+      "Arreglo en el tipado con Typescript causados por la actualización de React a su version 18.",
+  },
+] as const;
+
+function ContributionsOpenSource() {
+  return (
+    <Box as={"section"} py={"6"}>
+      <Container maxW={"3xl"}>
+        <Heading as="h2" size="lg" color="blue.400" textAlign={"center"}>
+          Contribuciones a proyectos Open Source
+          <Icon as={FaGithubAlt} mx={"6px"} />
+        </Heading>
+        <Box pt={6} gap={0}>
+          {CONTRIBUTIONS.map((contribution, i) => {
+            return (
+              <Grid
+                templateColumns="repeat(12, 1fr)"
+                gap={2}
+                w={"full"}
+                borderBottom={"1px"}
+                borderTop={i === 0 ? "1px" : "0"}
+                borderColor={"gray.700"}
+                alignItems={"center"}
+                py={"6px"}
+                key={i}
+              >
+                <GridItem
+                  colStart={1}
+                  colEnd={[5, 4, 3]}
+                  display="flex"
+                  alignItems={"center"}
+                >
+                  <Link
+                    fontSize={["sm"]}
+                    fontWeight={"semibold"}
+                    bg={"gray.700"}
+                    p={"4px"}
+                    rounded={"md"}
+                    w="full"
+                    textAlign={"center"}
+                    href={contribution.repo_url}
+                    isExternal
+                  >
+                    {contribution.repo_name}
+                  </Link>
+                </GridItem>
+                <GridItem
+                  colStart={[1, 4, 3]}
+                  colEnd={[5, 6, 5]}
+                  display="flex"
+                  alignItems={"center"}
+                  justifyContent={"center"}
+                >
+                  <GitPrStatusBadge status={contribution.status} />
+                </GridItem>
+                <GridItem
+                  colStart={[5, 6, 5]}
+                  colEnd={13}
+                  rowStart={1}
+                  rowEnd={[3, "auto"]}
+                >
+                  <Link href={contribution.pr_url} isExternal>
+                    {contribution.description}
+                    <Icon as={FaExternalLinkAlt} mx={"6px"} />
+                  </Link>
+                </GridItem>
+              </Grid>
+            );
+          })}
+        </Box>
       </Container>
     </Box>
   );
