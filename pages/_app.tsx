@@ -4,22 +4,28 @@ import dynamic from "next/dynamic";
 import Footer from "../src/ui/layouts/footer";
 import { Box, VStack } from "@chakra-ui/react";
 import Snowfall from "react-snowfall";
+import { SessionProvider } from "next-auth/react";
 
 const Layout = dynamic(() => import("../src/ui/layouts"), { ssr: false });
 const Navbar = dynamic(() => import("../src/ui/layouts/navbar"), {
   ssr: false,
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   return (
     <Layout>
-      <Navbar />
-      <div style={{ height: "100%", width: "100%", position: "relative" }}>
-        <Box py={[4, 6]} display="flex" flexDirection="column" flex={1}>
-          <Snowfall snowflakeCount={100} />
-          <Component {...pageProps} />
-        </Box>
-      </div>
+      <SessionProvider session={session}>
+        <Navbar />
+        <div style={{ height: "100%", width: "100%", position: "relative" }}>
+          <Box py={[4, 6]} display="flex" flexDirection="column" flex={1}>
+            <Snowfall snowflakeCount={100} />
+            <Component {...pageProps} />
+          </Box>
+        </div>
+      </SessionProvider>
       <Footer />
     </Layout>
   );

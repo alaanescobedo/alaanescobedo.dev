@@ -45,6 +45,7 @@ import PdfModalViewer from "../../components/pdf-modal";
 
 import Head from "next/head";
 import NextImage from "next/image";
+import { useSession } from "next-auth/react";
 
 const STACK = [TechObj.typescript, TechObj.java];
 
@@ -80,6 +81,9 @@ const dayOfWeek = getDayOfWeek(
 function CallToActionWithAnnotation() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const { data: session, status } = useSession();
+  const formatedName = session?.user?.name?.split(" ")[0];
+
   return (
     <>
       <Container
@@ -112,7 +116,8 @@ function CallToActionWithAnnotation() {
                   alt="123"
                 />
               </Box>
-              Hola! Feliz {dayOfWeek}!👋
+              {formatedName && `Hola ${formatedName}! Feliz ${dayOfWeek}!👋`}
+              {!formatedName && `Hola! Feliz ${dayOfWeek}!👋`}
             </Text>
             <Spacer />
             <Text as="span">Soy Alan Escobedo</Text>
