@@ -114,7 +114,7 @@
           "disabled": false
         },
         {
-          "label": "Backend Springboot (Producción)",
+          "label": "Backend Springboot (Production)",
           "url": "github.com/alaanescobedo/my-files-api-springboot",
           "disabled": false
         }
