@@ -1,0 +1,32 @@
+{
+  "heading": "🌟Metas para el 2023🌟",
+  "description": "Es increíble lo que se puede lograr en un año con constancia y dedicación. Así que este año me he propuesto:",
+  "data": {
+    "2023": [
+      {
+        "text": "Realizar y aprobar el examen de OCA y OCP de Java",
+        "status": "in-progress"
+      },
+      {
+        "text": "Mejorar mi inglés y certificarme en un nivel C1 o superior",
+        "status": "in-progress"
+      },
+      {
+        "text": "Aprender sobre desarrollo de microservicios",
+        "status": "in-progress"
+      },
+      {
+        "text": "Estudiar y obtener el certificado de AWS Cloud Practitioner y AWS Developer Associate",
+        "status": "in-progress"
+      },
+      {
+        "text": "Empezar a escribir en mi blog",
+        "status": "in-progress"
+      },
+      {
+        "text": "Aprender y entender el entorno de docker y redes",
+        "status": "in-progress"
+      }
+    ]
+  }
+}

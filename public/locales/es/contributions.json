@@ -1,0 +1,21 @@
+{
+  "heading": "Contribuciones a proyectos Open Source",
+  "data": [
+    {
+      "id": 1,
+      "repo_name": "The Algorithms",
+      "repo_url": "https://the-algorithms.com",
+      "pr_url": "https://github.com/TheAlgorithms/Algorithms-Explanation/pull/160",
+      "status": "merged",
+      "description": "Correccion de redireccionamiento en los enlaces del sitio web."
+    },
+    {
+      "id": 2,
+      "repo_name": "Formik",
+      "repo_url": "https://formik.org",
+      "pr_url": "https://github.com/jaredpalmer/formik/pull/3547",
+      "status": "open",
+      "description": "Arreglo en el tipado con Typescript causados por la actualización de React a su version 18."
+    }
+  ]
+}

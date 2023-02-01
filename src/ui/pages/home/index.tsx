@@ -40,12 +40,14 @@ import GitPrStatusBadge from "../../components/git-pr-status-badge";
 
 import { getDayOfWeek } from "../../../utils/get-day-of-week";
 import { TechObj } from "../../../constants/technologies";
-import PROJECTS from "../../../data/projects.json";
+import PROJECTS from "../../../../public/locales/es/projects.json";
 import PdfModalViewer from "../../components/pdf-modal";
 
 import Head from "next/head";
 import NextImage from "next/image";
 import { useSession } from "next-auth/react";
+import { Trans, useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 const STACK = [TechObj.typescript, TechObj.java];
 
@@ -73,16 +75,21 @@ const HomePage = () => {
 export default HomePage;
 
 const now = new Date();
-const dayOfWeek = getDayOfWeek(
-  now.getDate(),
-  now.getMonth(),
-  now.getFullYear()
-);
+
 function CallToActionWithAnnotation() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { t } = useTranslation("home");
+  const { locale, defaultLocale } = useRouter();
+
+  const dayOfWeek = getDayOfWeek(
+    now.getDate(),
+    now.getMonth(),
+    now.getFullYear(),
+    locale ?? defaultLocale ?? "en"
+  );
 
   const { data: session, status } = useSession();
-  const formatedName = session?.user?.name?.split(" ")[0];
+  const formatedName = session?.user?.name?.split(" ")[0] ?? null;
 
   return (
     <>
@@ -116,27 +123,37 @@ function CallToActionWithAnnotation() {
                   alt="123"
                 />
               </Box>
-              {formatedName && `Hola ${formatedName}! Feliz ${dayOfWeek}!👋`}
-              {!formatedName && `Hola! Feliz ${dayOfWeek}!👋`}
+              {t("greeting", {
+                name: formatedName && ` ${formatedName}`,
+                dayOfWeek,
+              })}
             </Text>
             <Spacer />
-            <Text as="span">Soy Alan Escobedo</Text>
+            <Text as="span">{t("i_am")}</Text>
           </Heading>
 
-          <Heading
-            as="h2"
-            color={"gray.500"}
-            textAlign="left"
-            fontSize={{ base: "md", md: "xl" }}
-          >
-            Desarrollador Web 👨‍💻
-            <Spacer my={4} />
-            Construyendo{" "}
-            <Text as="span" color="purple.400">
-              un futuro mejor
-            </Text>{" "}
-            con la tecnología 🚀
-          </Heading>
+          <VStack alignItems={"start"} textAlign={"left"}>
+            <Heading
+              as="h2"
+              color={"gray.500"}
+              fontSize={{ base: "md", md: "xl" }}
+              m={"0"}
+            >
+              {t("i_am_a")}
+            </Heading>
+            <Heading
+              as="h2"
+              color={"gray.500"}
+              fontSize={{ base: "md", md: "xl" }}
+              m={"0"}
+            >
+              <Trans t={t} i18nKey={"what_i_do"}>
+                <Text as="span" color="purple.400">
+                  better future
+                </Text>
+              </Trans>
+            </Heading>
+          </VStack>
 
           <Flex justifyContent="space-between" flexWrap="wrap" gap={6}>
             <ButtonGroup gap={3} justifyContent="center">
@@ -163,11 +180,11 @@ function CallToActionWithAnnotation() {
                 variant="link"
                 leftIcon={<HiDocumentArrowDown />}
               >
-                Resume
+                {t("resume")}
               </Button>
             </ButtonGroup>
             <HStack pointerEvents="none">
-              <Text>Programación:</Text>
+              <Text>{t("programming_label")}:</Text>
               <Flex gap={2}>
                 {STACK.map(({ name, color, icon }, i) => (
                   <Badge
@@ -193,6 +210,9 @@ function CallToActionWithAnnotation() {
 }
 
 function Projects() {
+  const { t } = useTranslation("projects");
+  const projectsData: any[] = t("data", { returnObjects: true });
+
   return (
     <Box
       as="section"
@@ -214,11 +234,12 @@ function Projects() {
             lineHeight={"110%"}
           >
             <Text as={"span"} color={"blue.400"}>
-              Proyectos
+              {t("heading")}
             </Text>
           </Heading>
           <Grid templateColumns="repeat(2, 1fr)" gap={6} mx="auto" w="full">
-            {PROJECTS.slice(0)
+            {projectsData
+              .slice(0)
               .reverse()
               .map((project) => (
                 <GridItem colSpan={[2, 1]} key={project.id}>
@@ -232,12 +253,15 @@ function Projects() {
   );
 }
 
-type IProject = typeof PROJECTS[0];
+type IProject = typeof PROJECTS.data[0];
 
 interface ProjectCardProps {
   project: IProject;
 }
 function ProjectCard({ project }: ProjectCardProps) {
+  const { t } = useTranslation("projects");
+  const { locale } = useRouter();
+
   const { title, description, preview, slug, technologies, demo, inProgress } =
     project;
   return (
@@ -247,7 +271,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           {title}
           {inProgress! && (
             <Badge ml={2} colorScheme="yellow">
-              En desarrollo
+              {t("status.in_progress")}
             </Badge>
           )}
         </Heading>
@@ -277,7 +301,7 @@ function ProjectCard({ project }: ProjectCardProps) {
             flex={1}
           >
             <Text fontSize="md" color="gray.300" flex={1}>
-              No hay preview disponible
+              {t("no_preview")}
             </Text>
           </Box>
         )}
@@ -314,8 +338,9 @@ function ProjectCard({ project }: ProjectCardProps) {
             colorScheme="purple"
             bgColor="purple.500"
             color="white"
+            locale={locale}
           >
-            Ver Detalles
+            {t("actions.details")}
           </Button>
           <Button
             as={demo === null ? Button : "a"}
@@ -336,45 +361,28 @@ function ProjectCard({ project }: ProjectCardProps) {
 }
 
 function GoalsForNextYear() {
+  const { t } = useTranslation("goals");
+  const goalsData: any[] = t("data.2023", { returnObjects: true });
+
   return (
     <Box as={"section"} py={"6"}>
       <Container maxW={"2xl"}>
         <Stack>
           <Heading textAlign={"center"}>
             <Text as={"span"} color={"blue.400"}>
-              🌟Metas para el 2023🌟
+              {t("heading")}
             </Text>
           </Heading>
           <Heading as={"h3"} size={"sm"} color={"gray.500"}>
-            Es increíble lo que se puede lograr en un año con constancia y
-            dedicación. Así que este año me he propuesto:
+            {t("description")}
           </Heading>
           <List spacing={3} py={"4"}>
-            <ListItem display="flex" alignItems={"center"}>
-              <ListIcon as={MdOutlinePending} color="blue.500" />
-              Realizar y aprobar el examen de OCA y OCP de Java
-            </ListItem>
-            <ListItem display="flex" alignItems={"center"}>
-              <ListIcon as={MdOutlinePending} color="blue.500" />
-              Mejorar mi inglés y certificarme en un nivel C1 o superior
-            </ListItem>
-            <ListItem display="flex" alignItems={"center"}>
-              <ListIcon as={MdOutlinePending} color="blue.500" />
-              Estudiar y obtener el certificado de AWS Cloud Practitioner y AWS
-              Developer Associate
-            </ListItem>
-            <ListItem display="flex" alignItems={"center"}>
-              <ListIcon as={MdOutlinePending} color="blue.500" />
-              Aprender sobre desarrollo de microservicios
-            </ListItem>
-            <ListItem display="flex" alignItems={"center"}>
-              <ListIcon as={MdOutlinePending} color="blue.500" />
-              Empezar a escribir en mi blog
-            </ListItem>
-            <ListItem display="flex" alignItems={"center"}>
-              <ListIcon as={MdOutlinePending} color="blue.500" />
-              Aprender y entender el entorno de docker y redes
-            </ListItem>
+            {goalsData.map((goal, i) => (
+              <ListItem display="flex" alignItems={"center"} key={i}>
+                <ListIcon as={MdOutlinePending} color="blue.500" />
+                {goal.text}
+              </ListItem>
+            ))}
           </List>
         </Stack>
       </Container>
@@ -382,37 +390,19 @@ function GoalsForNextYear() {
   );
 }
 
-const CONTRIBUTIONS = [
-  {
-    id: 1,
-    repo_name: "The Algorithms",
-    repo_url: "https://the-algorithms.com",
-    pr_url: "https://github.com/TheAlgorithms/Algorithms-Explanation/pull/160",
-    status: "merged",
-    description:
-      "Correccion de redireccionamiento en los enlaces del sitio web.",
-  },
-  {
-    id: 2,
-    repo_name: "Formik",
-    repo_url: "https://formik.org",
-    pr_url: "https://github.com/jaredpalmer/formik/pull/3547",
-    status: "open",
-    description:
-      "Arreglo en el tipado con Typescript causados por la actualización de React a su version 18.",
-  },
-] as const;
-
 function ContributionsOpenSource() {
+  const { t } = useTranslation("contributions");
+  const contributionsData: any[] = t("data", { returnObjects: true });
+
   return (
     <Box as={"section"} py={"6"}>
       <Container maxW={"3xl"}>
         <Heading as="h2" size="lg" color="blue.400" textAlign={"center"}>
-          Contribuciones a proyectos Open Source
+          {t("heading")}
           <Icon as={FaGithubAlt} mx={"6px"} />
         </Heading>
         <Box pt={6} gap={0}>
-          {CONTRIBUTIONS.map((contribution, i) => {
+          {contributionsData.map((contribution, i) => {
             return (
               <Grid
                 templateColumns="repeat(12, 1fr)"

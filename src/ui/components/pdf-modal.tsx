@@ -5,6 +5,7 @@ import {
   ModalBody,
   AspectRatio,
 } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 
 function PdfModalViewer({
   isOpen,
@@ -13,6 +14,9 @@ function PdfModalViewer({
   isOpen: boolean;
   onClose: () => void;
 }) {
+  const { locale } = useRouter();
+  const resumeFile = locale === "en" ? "Resume" : "CV";
+
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose} size="6xl">
@@ -28,7 +32,7 @@ function PdfModalViewer({
           <ModalBody m="0 auto" p={0} w="full" h="full">
             <AspectRatio ratio={16 / 9} h="100%" w="100%">
               <iframe
-                src="/static/AlanEscobedo_CV.pdf#view=fitH"
+                src={`/static/AlanEscobedo_${resumeFile}.pdf#view=fitH`}
                 height="100%"
                 width="100%"
               />

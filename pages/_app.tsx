@@ -5,16 +5,14 @@ import Footer from "../src/ui/layouts/footer";
 import { Box, VStack } from "@chakra-ui/react";
 import Snowfall from "react-snowfall";
 import { SessionProvider } from "next-auth/react";
+import { appWithTranslation } from "next-i18next";
 
 const Layout = dynamic(() => import("../src/ui/layouts"), { ssr: false });
 const Navbar = dynamic(() => import("../src/ui/layouts/navbar"), {
   ssr: false,
 });
 
-export default function App({
-  Component,
-  pageProps: { session, ...pageProps },
-}: AppProps) {
+function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <Layout>
       <SessionProvider session={session}>
@@ -30,3 +28,5 @@ export default function App({
     </Layout>
   );
 }
+
+export default appWithTranslation(App);

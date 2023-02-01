@@ -1,4 +1,6 @@
 import Head from "next/head";
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Page from "../src/ui/pages/home";
 
 export default function HomePage() {
@@ -13,3 +15,20 @@ export default function HomePage() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const initialLocale = locale || "es";
+
+  return {
+    props: {
+      ...(await serverSideTranslations(initialLocale, [
+        "home",
+        "projects",
+        "goals",
+        "contributions",
+        "navbar",
+        "auth",
+      ])),
+    },
+  };
+};

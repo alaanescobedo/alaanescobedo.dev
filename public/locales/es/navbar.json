@@ -1,0 +1,28 @@
+{
+  "home": {
+    "path": "/",
+    "title": "Inicio"
+  },
+  "menu": [
+    {
+      "path": "/projects",
+      "title": "Proyectos"
+    },
+    {
+      "path": "/notes",
+      "title": "Notas",
+      "disabled": true,
+      "tag": "Pronto"
+    }
+  ],
+  "auth": {
+    "login": {
+      "path": "/login",
+      "title": "Iniciar sesión"
+    },
+    "logout": {
+      "path": "/logout",
+      "title": "Cerrar sesión"
+    }
+  }
+}

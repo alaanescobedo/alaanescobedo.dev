@@ -1,0 +1,8 @@
+{
+  "greeting": "Hi{{name}}! Happy {{dayOfWeek}}👋",
+  "i_am": "I'm Alan Escobedo",
+  "i_am_a": "Web Developer 👨‍💻",
+  "what_i_do": "Building a <0>better future</0> with technology 🚀.",
+  "resume": "Resume",
+  "programming_label": "Programming"
+}

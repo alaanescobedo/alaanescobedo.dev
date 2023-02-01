@@ -1,9 +1,11 @@
 import Head from "next/head";
 import Page from "../../src/ui/pages/projects/project-detail";
 
-import PROJECTS from "../../src/data/projects.json";
+import PROJECTS_JSON from "../../public/locales/en/projects.json";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
+const PROJECTS = PROJECTS_JSON.data;
 type IProject = typeof PROJECTS[0];
 
 interface ProjectDetailProps {
@@ -35,26 +37,28 @@ export default function ProjectDetailPage({
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = PROJECTS.map(({ slug }) => ({
-    params: {
-      slug,
-    },
-  }));
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+  const pathsWithLocale = locales?.map((locale) => {
+    return PROJECTS.map(({ slug }) => {
+      return {
+        params: { slug },
+        locale,
+      };
+    });
+  });
 
-  return { paths, fallback: false };
+  return { paths: pathsWithLocale?.flat() ?? [], fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const slugParam = context.params?.slug as string;
-  const project = PROJECTS.find(({ slug }) =>
-    slug.includes(slugParam)
-  ) as IProject;
+  const initialLocale = context.locale ?? context.defaultLocale ?? "es";
+  const projects =
+    require(`../../public/locales/${initialLocale}/projects.json`)
+      .data as IProject[];
+  const project = projects.find(({ slug }) => slug === context.params?.slug);
 
   if (!project) {
-    return {
-      notFound: true,
-    };
+    return { notFound: true };
   }
 
   const nextProject =
@@ -62,11 +66,16 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const prevProject =
     PROJECTS.find(({ id }) => id === project?.id - 1) ||
     PROJECTS[PROJECTS.length - 1];
+
   return {
     props: {
       project,
       nextProjectSlug: nextProject?.slug,
       prevProjectSlug: prevProject?.slug,
+      ...(await serverSideTranslations(
+        context.locale ?? context.defaultLocale ?? "es",
+        ["projects", "navbar", "auth"]
+      )),
     },
   };
 };
