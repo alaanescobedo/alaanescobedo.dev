@@ -19,12 +19,15 @@ import { signIn } from "next-auth/react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Tooltip } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 interface ModalLoginProps {
   isOpen: boolean;
   onClose: () => void;
 }
 function ModalLogin({ isOpen, onClose }: ModalLoginProps) {
+  const { t } = useTranslation("auth", { keyPrefix: "login" });
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -39,27 +42,22 @@ function ModalLogin({ isOpen, onClose }: ModalLoginProps) {
       >
         <ModalCloseButton />
         <Heading as={"h4"} size={"md"} textAlign={"center"} color={"gray.100"}>
-          Iniciar sesión
+          {t("heading")}
         </Heading>
         <ModalBody pt={8}>
           <VStack spacing={4}>
             <Button onClick={() => signIn("google")} leftIcon={<FcGoogle />}>
-              Acceder con Google
+              {t("actions.google")}
             </Button>
             <Button onClick={() => signIn("github")} leftIcon={<FaGithub />}>
-              Acceder con Github
+              {t("actions.github")}
             </Button>
           </VStack>
         </ModalBody>
         <ModalFooter>
-          <Tooltip
-            label={
-              "De momento no hay una razón para iniciar sesión, una amiga quería que la saludara cuando ingresara a la página, aun así, tengo planes a futuro para nuevas features que implementen esta función."
-            }
-            aria-label="A tooltip"
-          >
+          <Tooltip label={t("why.content")} aria-label="A tooltip">
             <Text color={"gray.300"} fontWeight={"bold"} fontSize={"sm"}>
-              ¿Porque iniciar sesión?
+              {t("why.title")}
             </Text>
           </Tooltip>
         </ModalFooter>
