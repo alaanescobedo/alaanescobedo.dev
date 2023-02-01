@@ -1,0 +1,28 @@
+{
+  "home": {
+    "path": "/",
+    "title": "Home"
+  },
+  "menu": [
+    {
+      "path": "/projects",
+      "title": "Projects"
+    },
+    {
+      "path": "/notes",
+      "title": "Notes",
+      "disabled": true,
+      "tag": "Soon"
+    }
+  ],
+  "auth": {
+    "login": {
+      "path": "/login",
+      "title": "Login"
+    },
+    "logout": {
+      "path": "/logout",
+      "title": "Logout"
+    }
+  }
+}

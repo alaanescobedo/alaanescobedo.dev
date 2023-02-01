@@ -1,0 +1,32 @@
+{
+  "heading": "🌟Goals for 2023🌟",
+  "description": "It is incredible what can be achieved in a year with perseverance and dedication. So this year I have proposed:",
+  "data": {
+    "2023": [
+      {
+        "text": "Take and pass the Java OCA and OCP exam",
+        "status": "in-progress"
+      },
+      {
+        "text": "Improve my English and certify myself at a C1 level or higher",
+        "status": "in-progress"
+      },
+      {
+        "text": "Study and obtain the certificate of AWS Cloud Practitioner and AWS Developer Associate",
+        "status": "in-progress"
+      },
+      {
+        "text": "Learn about microservices development",
+        "status": "in-progress"
+      },
+      {
+        "text": "Start writing on my blog",
+        "status": "in-progress"
+      },
+      {
+        "text": "Learn and understand the docker environment and networks",
+        "status": "in-progress"
+      }
+    ]
+  }
+}
