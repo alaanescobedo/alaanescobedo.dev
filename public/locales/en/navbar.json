@@ -11,7 +11,7 @@
     {
       "path": "/notes",
       "title": "Notes",
-      "disabled": true,
+      "disabled": false,
       "tag": "Soon"
     }
   ],
