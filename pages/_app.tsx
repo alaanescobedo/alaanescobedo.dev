@@ -17,12 +17,12 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     <Layout>
       <SessionProvider session={session}>
         <Navbar />
-        <div style={{ height: "100%", width: "100%", position: "relative" }}>
+        <Box w={"full"} h={"full"} pos={"relative"} flex={"1"}>
           <Box py={[4, 6]} display="flex" flexDirection="column" flex={1}>
             <Snowfall snowflakeCount={100} />
             <Component {...pageProps} />
           </Box>
-        </div>
+        </Box>
       </SessionProvider>
       <Footer />
     </Layout>
