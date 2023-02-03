@@ -33,7 +33,7 @@ const Menu = () => {
         <Link
           as={disabled ? Text : NextLink}
           href={path}
-          variant={disabled ? "disabled" : ""}
+          variant={disabled ? "disabled" : "link"}
           key={path}
           fontSize="lg"
           fontWeight="semibold"
@@ -154,6 +154,7 @@ export default function Navbar() {
               }
               color="white"
               value={initialLocale}
+              textTransform={"uppercase"}
             >
               {locales?.map((locale) => (
                 <option
