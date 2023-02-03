@@ -14,6 +14,9 @@ const nextConfig = {
     ];
   },
   i18n,
+  images: {
+    domains: ["media.graphassets.com"],
+  },
 };
 
 module.exports = nextConfig;
