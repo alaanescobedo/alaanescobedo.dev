@@ -19,10 +19,11 @@ import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
 import { TechObj } from "../../../constants/technologies";
 import { useHotkeys } from "react-hotkeys-hook";
 
-import PROJECTS from "../../../data/projects.json";
+import PROJECTS from "../../../../public/locales/en/projects.json";
 import NextImage from "next/image";
+import { useTranslation } from "react-i18next";
 
-type IProject = typeof PROJECTS[0];
+type IProject = typeof PROJECTS.data[0];
 interface ProjectDetailProps {
   project: IProject;
   nextProjectSlug: string;
@@ -54,6 +55,7 @@ const ProjectDetails = ({
 }: ProjectDetailProps) => {
   const router = useRouter();
   const displayArrow = useBreakpointValue({ lg: "flex", base: "none" });
+  const { t } = useTranslation("projects");
 
   const prevProject = () => router.push(`/projects/${nextProjectSlug}`);
   const nextProject = () => router.push(`/projects/${prevProjectSlug}`);
@@ -75,7 +77,7 @@ const ProjectDetails = ({
         {project.title}
         {project.inProgress && (
           <Badge ml={2} colorScheme="yellow">
-            En desarrollo
+            {t("status.in_progress")}
           </Badge>
         )}
       </Heading>
@@ -98,25 +100,25 @@ const ProjectDetails = ({
                 textAlign="center"
               >
                 <Text fontSize="md" color="gray.300">
-                  No hay preview disponible
+                  {t("status.no_preview")}
                 </Text>
               </Box>
             )}
             <Box>
               <Heading fontSize="xl" my={2} color="gray.500">
-                Que es {project.title}?
+                {t("sections.what_is", { appName: project.title })}
               </Heading>
               <Text>{project.description}</Text>
             </Box>
             <Box>
               <Heading fontSize="xl" my={2} color="gray.500">
-                Motivo
+                {t("sections.reason")}
               </Heading>
               <Text>{project.reason}</Text>
             </Box>
             <Box>
               <Heading fontSize="xl" my={2} color="gray.500">
-                Caracteristicas
+                {t("sections.features")}
               </Heading>
               {project.features.map((paragraph, i) => (
                 <Text key={i}>{paragraph}</Text>
@@ -124,7 +126,7 @@ const ProjectDetails = ({
             </Box>
             <Box>
               <Heading fontSize="xl" mb={2} color="gray.500">
-                Tecnologias utilizadas
+                {t("sections.technologies")}
               </Heading>
               <Flex mt={4} gap={1} flexWrap={"wrap"}>
                 {project.technologies.map((tech, i) => {
@@ -150,7 +152,7 @@ const ProjectDetails = ({
 
             <Box gap="2">
               <Heading fontSize="xl" my={2} color="gray.500">
-                Links
+                {t("sections.links")}
               </Heading>
               {project.links.map((link, i) => (
                 <Box key={i}>
@@ -197,7 +199,7 @@ const ProjectDetails = ({
         display={displayArrow}
         {...arrowStyles}
       >
-        &#10094; Prev Project
+        &#10094; {t("sections.prev_project")}
       </Text>
       <Text
         right="6%"
@@ -208,7 +210,7 @@ const ProjectDetails = ({
         display={displayArrow}
         {...arrowStyles}
       >
-        Next Project &#10095;
+        {t("sections.next_project")} &#10095;
       </Text>
       <Box pos="fixed" right="5%" top="10%" display={displayArrow}>
         <VStack color="gray.500" fontSize="lg" opacity="0.7" spacing={4}>

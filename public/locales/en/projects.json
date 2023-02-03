@@ -1,0 +1,142 @@
+{
+  "heading": "Projects",
+  "data": [
+    {
+      "id": 1,
+      "title": "Enchulame la playera",
+      "preview": {
+        "urls": [
+          "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114465/elp_preview/preview_2_nsm7zp.jpg",
+          "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114465/elp_preview/preview_5_ob63vi.jpg",
+          "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114465/elp_preview/preview_3_myubv8.jpg",
+          "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114465/elp_preview/preview_4_oraxni.jpg"
+        ],
+        "alt": "enchulame-la-playera preview"
+      },
+      "description": "Enchulame la playera is an e-commerce that allows users to create custom designs for shirts.",
+      "reason": "This application was developed in order to practice my skills with JavaScript and Java, as well as the use of technologies such as Trello, Jira, GitHub. It was developed in a team of 6 people, taking a team leader role along with the developer role.",
+      "features": [
+        "- E-commerce project where products from a t-shirt store are displayed."
+      ],
+      "technologies": ["javascript", "bootstrap", "springboot"],
+      "slug": "enchulame-la-playera",
+      "links": [
+        {
+          "label": "Frontend",
+          "url": "github.com/alaanescobedo/enchulame-la-playera-client",
+          "disabled": false
+        },
+        {
+          "label": "Backend",
+          "url": "github.com/alaanescobedo/enchulame-la-playera-api",
+          "disabled": false
+        }
+      ],
+      "demo": "enchulame-la-playera.netlify.app/"
+    },
+    {
+      "id": 2,
+      "title": "Store Finder",
+      "preview": {
+        "urls": [
+          "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114204/maps_preview/preview_2_nfqsgt.jpg",
+          "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114203/maps_preview/preview_4_g3yze5.jpg",
+          "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114202/maps_preview/preview_3_nvm8hw.jpg",
+          "https://res.cloudinary.com/dr3egho5s/image/upload/v1670114202/maps_preview/preview_1_lvvxnw.jpg"
+        ],
+        "alt": "store-finder-maps preview"
+      },
+      "description": "Store Finder is a web application that allows users to find stores near their current location, as well as search for stores by name or by address.",
+      "reason": "This application was developed in order to practice my skills with the use of the Google Maps API.",
+      "features": [
+        "- Shows the stores in Mexico City on an interactive map.",
+        "- Uses the Google Maps API to display the map and markers.",
+        "- Allows you to filter stores by address and by name.",
+        "- Change view to Street View to see the location in 360°.",
+        "- Project made without additional dependencies to the React core.",
+        "- An own wrapper was implemented for the Google Maps API based on the '@googlemaps/react-wrapper' library"
+      ],
+      "technologies": ["react", "css", "typescript"],
+      "slug": "store-finder",
+      "links": [
+        {
+          "label": "Frontend",
+          "url": "github.com/alaanescobedo/store-finder-maps",
+          "disabled": false
+        }
+      ],
+      "demo": "store-finder-maps.netlify.app/"
+    },
+    {
+      "id": 3,
+      "title": "My Files",
+      "preview": {
+        "urls": [
+          "https://res.cloudinary.com/dr3egho5s/image/upload/v1672104676/my-files-preview/preview_1_cn0bpx.jpg",
+          "https://res.cloudinary.com/dr3egho5s/image/upload/v1672104676/my-files-preview/preview_2_cdvcnq.jpg",
+          "https://res.cloudinary.com/dr3egho5s/image/upload/v1672104676/my-files-preview/preview_3_sakvnv.jpg",
+          "https://res.cloudinary.com/dr3egho5s/image/upload/v1672104676/my-files-preview/preview_4_rcvmkf.jpg"
+        ],
+        "alt": "my-files-app preview"
+      },
+      "description": "My Files is an app where users can store files based on a subscription.",
+      "reason": "This application was developed in order to practice my backend skills with both NestJs and Springboot, and learn about their similarities and differences.",
+      "features": [
+        "- File storage in AWS S3.",
+        "- Upload user avatar to Cloudinary.",
+        "- Authentication method with JWT and Cookies.",
+        "- Dockerized application deployment",
+        "- Sign in with Google.",
+        "- Email notification.",
+        "- 2-step verification method with Google Authenticator.",
+        "- Subscription method for a payment plan using Stripe.",
+        "- Data search using ElasticSearch."
+      ],
+      "technologies": [
+        "nextjs",
+        "chakraui",
+        "springboot",
+        "nestjs",
+        "stripe",
+        "aws",
+        "docker"
+      ],
+      "slug": "my-files-app",
+      "links": [
+        {
+          "label": "Frontend",
+          "url": "github.com/alaanescobedo/my-files-web",
+          "disabled": false
+        },
+        {
+          "label": "Backend NestJs",
+          "url": "github.com/alaanescobedo/project-full",
+          "disabled": false
+        },
+        {
+          "label": "Backend Springboot (Production)",
+          "url": "github.com/alaanescobedo/my-files-api-springboot",
+          "disabled": false
+        }
+      ],
+      "demo": "app.my-files-app.xyz/",
+      "inProgress": true
+    }
+  ],
+  "status": {
+    "in_progress": "In Progress",
+    "no_preview": "No preview available"
+  },
+  "actions": {
+    "details": "View Details"
+  },
+  "sections": {
+    "what_is": "What is {{appName}}?",
+    "reason": "Reason",
+    "features": "Features",
+    "technologies": "Technologies",
+    "links": "Links",
+    "next_project": "Next Project",
+    "prev_project": "Prev Project"
+  }
+}
